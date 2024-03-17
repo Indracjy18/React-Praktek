@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
-import { Products } from "../components/data/Products";
 
-const ProductList = () => {
+const ProductList = ({ products, onDeleteProduct, onEditProduct }) => {
   return (
     <div className="cards">
-      {Products.map((products, id) => {
+      {products.map((product, id) => {
         return (
           <ProductCard
             key={id}
-            nama={products.nama}
-            imageURL={products.imageURL}
-            deskripsi={products.deskripsi}
+            product={product}
+            onDeleteProduct={onDeleteProduct}
+            onEditProduct={onEditProduct}
           />
         );
       })}
